@@ -4,26 +4,26 @@ const Calculator = () => {
   return (
     <div>
       <div className="calculator">
-        <div className="display">display</div>
-        <div>AC</div>
-        <div>+/- </div>
-        <div>%</div>
-        <div>÷</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>⨉</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>-</div>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>+</div>
-        <div className="zero">0</div>
-        <div>.</div>
-        <div>=</div>
+        <div className="display">12345</div>
+        <div className="btn">AC</div>
+        <div className="btn">+ / −</div>
+        <div className="btn">%</div>
+        <div className="btn operator">÷</div>
+        <div className="btn">7</div>
+        <div className="btn">8</div>
+        <div className="btn">9</div>
+        <div className="btn operator">⨉</div>
+        <div className="btn">4</div>
+        <div className="btn">5</div>
+        <div className="btn">6</div>
+        <div className="btn operator">−</div>
+        <div className="btn">1</div>
+        <div className="btn">2</div>
+        <div className="btn">3</div>
+        <div className="btn operator">+</div>
+        <div className="btn zero">0</div>
+        <div className="btn">.</div>
+        <div className="btn operator">=</div>
       </div>
     </div>
   );
