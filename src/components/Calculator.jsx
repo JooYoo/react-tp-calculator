@@ -33,16 +33,12 @@ const Calculator = () => {
   };
 
   const append = (num) => {
-    // TODO: when operator clicked clean current
-    // if (isOperatorClicked) {
-    //   setCurrent("");
-    //   setIsOperatorClicked(false);
-
-    //   console.log(current);
-    // }
-
     // basic logic to diaplay number
-    if (current === "0" && num === ".") {
+    if (isOperatorClicked) {
+      // when operator clicked
+      setIsOperatorClicked(false);
+      setCurrent(`${num}`);
+    } else if (current === "0" && num === ".") {
       // 0.x
       setCurrent(`0${num}`);
     } else if (current === "0") {
@@ -64,7 +60,7 @@ const Calculator = () => {
   // operator
   const renewPrevious = () => {
     setPrevious(current);
-    //setIsOperatorClicked(true);
+    setIsOperatorClicked(true);
   };
 
   const divide = () => {
@@ -91,7 +87,14 @@ const Calculator = () => {
     renewPrevious();
   };
 
-  const equal = () => {};
+  const equal = () => {
+    // const res =
+
+    console.table([
+      ["previous:", previous],
+      ["current:", current]
+    ]);
+  };
 
   return (
     <div>
@@ -106,13 +109,7 @@ const Calculator = () => {
         <div className="btn" onClick={percent}>
           %
         </div>
-        <div
-          className="btn operator"
-          onClick={() => {
-            divide();
-            append("÷");
-          }}
-        >
+        <div className="btn operator" onClick={divide}>
           ÷
         </div>
         <div className="btn" onClick={() => append("7")}>
@@ -124,13 +121,7 @@ const Calculator = () => {
         <div className="btn" onClick={() => append("9")}>
           9
         </div>
-        <div
-          className="btn operator"
-          onClick={() => {
-            times();
-            append("⨉");
-          }}
-        >
+        <div className="btn operator" onClick={times}>
           ⨉
         </div>
         <div className="btn" onClick={() => append("4")}>
@@ -142,13 +133,7 @@ const Calculator = () => {
         <div className="btn" onClick={() => append("6")}>
           6
         </div>
-        <div
-          className="btn operator"
-          onClick={() => {
-            minus();
-            append("−");
-          }}
-        >
+        <div className="btn operator" onClick={minus}>
           −
         </div>
         <div className="btn" onClick={() => append("1")}>
@@ -160,13 +145,7 @@ const Calculator = () => {
         <div className="btn" onClick={() => append("3")}>
           3
         </div>
-        <div
-          className="btn operator"
-          onClick={() => {
-            plus();
-            append("+");
-          }}
-        >
+        <div className="btn operator" onClick={plus}>
           +
         </div>
         <div className="btn zero" onClick={() => append("0")}>
