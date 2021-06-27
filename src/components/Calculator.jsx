@@ -64,35 +64,48 @@ const Calculator = () => {
   };
 
   const divide = () => {
-    const newOperator = (a, b) => a / b;
-    setOperator(newOperator);
+    setOperator("divide");
     renewPrevious();
   };
 
   const times = () => {
-    const newOperator = (a, b) => a * b;
-    setOperator(newOperator);
+    setOperator("times");
     renewPrevious();
   };
 
   const minus = () => {
-    const newOperator = (a, b) => a - b;
-    setOperator(newOperator);
+    setOperator("minus");
     renewPrevious();
   };
 
   const plus = () => {
-    const newOperator = (a, b) => a + b;
-    setOperator(newOperator);
+    setOperator("plus");
     renewPrevious();
   };
 
   const equal = () => {
-    // const res =
+    switch (operator) {
+      case "divide":
+        setCurrent(`${parseFloat(previous) / parseFloat(current)}`);
+        break;
+      case "times":
+        setCurrent(`${parseFloat(previous) * parseFloat(current)}`);
+        break;
+      case "minus":
+        setCurrent(`${parseFloat(previous) - parseFloat(current)}`);
+        break;
+      case "plus":
+        setCurrent(`${parseFloat(previous) + parseFloat(current)}`);
+        break;
+
+      default:
+        break;
+    }
 
     console.table([
       ["previous:", previous],
-      ["current:", current]
+      ["current:", current],
+      ["operator:", operator]
     ]);
   };
 
